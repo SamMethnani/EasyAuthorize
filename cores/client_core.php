@@ -21,6 +21,8 @@
    $unique_id = $_POST['unique_id'];
    $Country = $_POST['Country'];
    $role = $_POST['role'];
+
+   
    if ($password!=$password2) {
     ?>
       <script>
@@ -31,7 +33,24 @@
 	} 
 	else 
   	{ $client= Client::ajouter($role,$Country,$unique_id,$name,$LastName,$password);
-	require_once('views/signin_signup.php');}}
+
+
+    if(!empty($client)){  ?>
+      <script>
+       Javascript:alert('sign up succeded ')
+       document.location.replace("?core=client&action=signin_signup");
+       </script>
+    <?php }
+    else 
+	{  ?>
+      <script>
+       Javascript:alert('sign up not completed '+ $name )
+       document.location.replace("?core=client&action=signin_signup");
+       </script>
+    <?php }}
+
+  }
+
 
 	public function sign_in()
   {$password = $_POST['password'];
@@ -52,7 +71,7 @@
                 $_SESSION['name'] = $client->getName();
    require_once('views/IndivAuth.php');}
     elseif($client->getRole()=="Organization"){
-   require_once('views/Organization.php');}
+   require_once('views/OrgAuth.php');}
 }
 
 
