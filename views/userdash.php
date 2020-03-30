@@ -164,8 +164,9 @@
 
                                        <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-sm btn-primary">Approve</button>
-                                                    <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                                                    <a type="button" href="?core=user&action=updateApprove&id=<?php echo $ligne->getId(); ?>"  class="btn btn-sm btn-primary">Approve</a>
+
+                                                    <a type="button" class="btn btn-sm btn-danger" href="?core=user&action=updateRej&id=<?php echo $ligne->getId(); ?>"  >Reject</a>
                                            </div>
                                             </td>
                                             </tr>
@@ -184,8 +185,8 @@
                                        
                                        <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-sm btn-primary">Approve</button>
-                                                    <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                                                    <a type="button" class="btn btn-sm btn-primary" href="?core=user&action=updateRej&id=<?php echo $ligne->getId(); ?>" >Approve</a>
+                                              <a type="button" class="btn btn-sm btn-danger" href="?core=user&action=updateApprove&id=<?php echo $ligne->getId(); ?>"  >Reject</a>
 
                                                     </div>
                                             </td>

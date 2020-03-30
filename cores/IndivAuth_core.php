@@ -8,7 +8,7 @@
   {
   header("location:?core=client&action=signin_signup");}
   else{ 
-  	$table= Auths::all();
+  	$table= Auths::allbyid($_SESSION['unique_id']);
   	require_once('views/all_auths.php');}
   }
   public function new_auth()
@@ -36,8 +36,7 @@
    $time2 = $_POST['time2'];
    $state2 = $_POST['state2'];
    $city2 = $_POST['city2'];
-  
- 
+
 
     $Auths= Auths::ajouter("Individual",$reason,$coment,$time,$time2,$state,$state2,$city,$city2,"NULL","NULL",$status,$_SESSION['unique_id']);
 	header("location:?core=IndivAuth&action=auths");}

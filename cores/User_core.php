@@ -12,7 +12,18 @@
   {  session_unset();
    session_destroy();
   	require_once('views/signin_signup_user.php');}
-  	
+
+public function  updateApprove(){
+  $user= Auths::updateApprove($_GET['id']);
+    $table= Auths::all();
+   require_once('views/userdash.php');
+}
+public function  updateRej(){
+  $user= Auths::updateRej($_GET['id']);
+    $table= Auths::all();
+   require_once('views/userdash.php');
+}
+
    public function sign_up_user ()
   { 
    $name = $_POST['Name'];

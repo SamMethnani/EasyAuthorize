@@ -15,7 +15,9 @@
 </head>
 <body>
 <div class="container login-container">
+<a href="?core=user&action=signin_signup_user">admin</a>
             <div class="row">
+                  
                 <div class="col-md-6 login-form-1">
                     <h3>Sign up</h3>
                     <form  action="?core=client&action=sign_up" method="post">

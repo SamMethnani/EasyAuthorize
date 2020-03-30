@@ -148,9 +148,7 @@ public static function all() {
       $db = Db::getInstance();
        //var_dump($results);
 
-       $results =$db->query("SELECT * from authorization where unique_id =='$unique_id'  order by id");
-      // we create a list of Post objects from the database results
-      
+       $results =$db->query("SELECT * from authorization WHERE client_id='".$client_id."'" );
 
       foreach($results->fetchAll() as $auth)
        {//foreach: for  // //fetchall->tableau d'après les infos brutes dans l'objet
@@ -160,8 +158,15 @@ public static function all() {
     }
     
 
-
-  
-
+ public static function updateApprove($id){
+   $db=Db::getInstance();
+  $qry =$db->exec("UPDATE  authorization SET  status='Approved' WHERE id='".$id."' ");
+  echo $qry;
+ }
+ public static function updateRej($id){
+   $db=Db::getInstance();
+  $qry =$db->exec("UPDATE  authorization SET  status='Rejected' WHERE id='".$id."' ");
+  echo $qry;
+ }
 
 }
