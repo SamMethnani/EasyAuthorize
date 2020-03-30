@@ -139,7 +139,7 @@
                                         <tr>
                                         <!--    <th>Name</th>
                                             <th>Last Name</th> !-->
-                                            <th>CIN/Passeport</th>
+                                            <th>Reason</th>
                                             <th>Start datetime</th>
                                             <th>End datetime</th>
                                             <th>Status</th>
