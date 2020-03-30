@@ -36,9 +36,10 @@
    $time2 = $_POST['time2'];
    $state2 = $_POST['state2'];
    $city2 = $_POST['city2'];
+  
  
 
-    $Auths= Auths::ajouter("Individual",$reason,$coment,$time,$time2,$state,$state2,$city,$city2,"NULL","NULL",$status);
+    $Auths= Auths::ajouter("Individual",$reason,$coment,$time,$time2,$state,$state2,$city,$city2,"NULL","NULL",$status,$_SESSION['unique_id']);
 	header("location:?core=IndivAuth&action=auths");}
 	else if($_SESSION['role']=="Organization")
   	 $reason = $_POST['reason'];

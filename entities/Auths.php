@@ -14,13 +14,14 @@ class Auths {
   private $action_type;
   private $piece_jointe;
    private $status;
+   private $client_id;
 
 
  // private $police_station;
 
   
  /*******************************/
-public function __construct( $id,$role,$reason,$coment,$start_datetime,$end_datetime,$start_state,$end_state,$start_city,$end_city,$action_type,$piece_jointe,$status)
+public function __construct( $id,$role,$reason,$coment,$start_datetime,$end_datetime,$start_state,$end_state,$start_city,$end_city,$action_type,$piece_jointe,$status,$client_id)
 {  $this->id=$id;
    $this->role=$role;
    $this->reason=$reason;
@@ -34,6 +35,7 @@ public function __construct( $id,$role,$reason,$coment,$start_datetime,$end_date
    $this->action_type=$action_type;
    $this->piece_jointe=$piece_jointe;
    $this->status=$status;
+   $this->client_id=$client_id;
    }
   /**********************************/
    public function getId(){
@@ -108,13 +110,19 @@ public function __construct( $id,$role,$reason,$coment,$start_datetime,$end_date
  public function setStatus($status){
     $this->status=$status;
   }
+  public function getClient_id(){
+    return $this->client_id;
+  }
+ public function setClient_id($client_id){
+    $this->client_id=$client_id;
+  }
 
 
-public static function ajouter( $role,$reason,$coment,$start_datetime,$end_datetime,$start_state,$end_state,$start_city,$end_city,$action_type,$piece_jointe,$status)
+public static function ajouter( $role,$reason,$coment,$start_datetime,$end_datetime,$start_state,$end_state,$start_city,$end_city,$action_type,$piece_jointe,$status,$client_id)
   { 
     $db=Db::getInstance();
-     $qry =$db->exec("INSERT INTO authorization(role, reason, coment, start_datetime, end_datetime,start_state,end_state,start_city,end_city,action_type,piece_jointe,status)
-    VALUES ('$role','$reason','$coment','$start_datetime','$end_datetime','$start_state','$end_state','$start_city','$end_city','$action_type','$piece_jointe','$status')");
+     $qry =$db->exec("INSERT INTO authorization(role, reason, coment, start_datetime, end_datetime,start_state,end_state,start_city,end_city,action_type,piece_jointe,status,client_id)
+    VALUES ('$role','$reason','$coment','$start_datetime','$end_datetime','$start_state','$end_state','$start_city','$end_city','$action_type','$piece_jointe','$status','$client_id')");
   
  }
 
@@ -130,7 +138,23 @@ public static function all() {
 
       foreach($results->fetchAll() as $auth)
        {//foreach: for  // //fetchall->tableau d'après les infos brutes dans l'objet
-     $liste[] = new Auths( $auth['id'],$auth['role'],$auth['reason'],$auth['coment'],$auth['start_datetime'],$auth['end_datetime'],$auth['start_state'],$auth['end_state'],$auth['start_city'],$auth['end_city'],$auth['action_type'],$auth['piece_jointe'],$auth['status']);
+     $liste[] = new Auths( $auth['id'],$auth['role'],$auth['reason'],$auth['coment'],$auth['start_datetime'],$auth['end_datetime'],$auth['start_state'],$auth['end_state'],$auth['start_city'],$auth['end_city'],$auth['action_type'],$auth['piece_jointe'],$auth['status'], $auth['client_id']);
+      }
+      return $liste;
+    }
+
+    public static function allbyid($client_id) {
+      $liste = [];
+      $db = Db::getInstance();
+       //var_dump($results);
+
+       $results =$db->query("SELECT * from authorization where unique_id =='$unique_id'  order by id");
+      // we create a list of Post objects from the database results
+      
+
+      foreach($results->fetchAll() as $auth)
+       {//foreach: for  // //fetchall->tableau d'après les infos brutes dans l'objet
+     $liste[] = new Auths( $auth['id'],$auth['role'],$auth['reason'],$auth['coment'],$auth['start_datetime'],$auth['end_datetime'],$auth['start_state'],$auth['end_state'],$auth['start_city'],$auth['end_city'],$auth['action_type'],$auth['piece_jointe'],$auth['status'],$auth['client_id']);
       }
       return $liste;
     }

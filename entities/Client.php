@@ -71,6 +71,7 @@ public static function ajouter( $role,$nationality,$unique_id,$name,$last_name,$
     $db=Db::getInstance();
      $qry =$db->exec("INSERT INTO client(role,nationality,unique_id,name,last_name,password)
     VALUES ('$role','$nationality','$unique_id','$name','$last_name','$password')");
+    return $qry;
  }
 
    public static function verif($unique_id,$password) {
