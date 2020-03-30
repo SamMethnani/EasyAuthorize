@@ -10,6 +10,8 @@
 
 * For Organization, it always needs an approval for its authorization request
 
+------------------------------------------------------------------------------------------------------------------------
+
 * sign up/ sign in page for the admin/ who's responsible for the approval
 * The approver can check the authorizations assigned to him (based on the location of the citizen/organization)
 
