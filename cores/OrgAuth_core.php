@@ -24,10 +24,9 @@
   {
   header("location:?core=user&action=signin_signup_user");}
   else{
-  	if($_POST['reason']=="Other"){$status="Pending";}
-  	else {$status="Approved";}
-
-  	 $action_type = $_POST['reason']; 	
+    
+    $status="Pending";
+  	$action_type = $_POST['reason']; 	
    $coment = $_POST['coment'];
    $time = $_POST['time'];
    $state = $_POST['state'];
