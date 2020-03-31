@@ -139,7 +139,10 @@
                                         <tr>
                                         <!--    <th>Name</th>
                                             <th>Last Name</th> !-->
+<<<<<<< HEAD
                                             <th>Client id</th>
+=======
+>>>>>>> 38bf490d0c7f63e52a0c3ef53c0d057fc1d3792d
                                             <th>Reason</th>
                                             <th>Start datetime</th>
                                             <th>End datetime</th>
