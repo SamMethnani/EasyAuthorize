@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group">
 
-                            <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+                            <a href="#" class="ForgetPwd" value="Login">Forgot Password?</a>
                         </div>
                     </form>
                 </div>
