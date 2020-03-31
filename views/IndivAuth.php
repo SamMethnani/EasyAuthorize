@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group ">
-                            Coment :
+                            Comment :
                             <input type="text" class ="form-control" name="coment" >
                         </div>
                        
