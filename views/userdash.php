@@ -139,7 +139,8 @@
                                         <tr>
                                         <!--    <th>Name</th>
                                             <th>Last Name</th> !-->
-                                            <th>CIN/Passeport</th>
+                                            <th>Client id</th>
+                                            <th>Reason</th>
                                             <th>Start datetime</th>
                                             <th>End datetime</th>
                                             <th>Status</th>
@@ -154,6 +155,7 @@
                                            if(($ligne->getStatus())=="Approved"){
                                         ?>
                                        <tr>
+                                           <td><?php echo $ligne->getClient_id(); ?></td>
                                            <td><?php echo $ligne->getReason(); ?></td>
 
                                            <td><?php echo $ligne->getStart_datetime(); ?></td>
@@ -164,9 +166,9 @@
 
                                        <td>
                                                 <div class="btn-group">
-                                                    <a type="button" href="?core=user&action=updateApprove&id=<?php echo $ligne->getId(); ?>"  class="btn btn-sm btn-primary">Approve</a>
+                                                  
 
-                                                    <a type="button" class="btn btn-sm btn-danger" href="?core=user&action=updateRej&id=<?php echo $ligne->getId(); ?>"  >Reject</a>
+                                                    <a type="button" class="btn btn-sm btn-danger" href="?core=user&action=updateRej&id=<?php echo $ligne->getId(); ?>" >Reject</a>
                                            </div>
                                             </td>
                                             </tr>
@@ -177,6 +179,7 @@
                                           } else {
                                         ?>
                                        <tr>
+                                       <td><?php echo $ligne->getClient_id(); ?></td>
                                            <td><?php echo $ligne->getReason(); ?></td>
                                            <td><?php echo $ligne->getStart_datetime(); ?></td>
                                             <td><?php echo $ligne->getEnd_datetime(); ?></td>
@@ -185,8 +188,8 @@
                                        
                                        <td>
                                                 <div class="btn-group">
-                                                    <a type="button" class="btn btn-sm btn-primary" href="?core=user&action=updateRej&id=<?php echo $ligne->getId(); ?>" >Approve</a>
-                                              <a type="button" class="btn btn-sm btn-danger" href="?core=user&action=updateApprove&id=<?php echo $ligne->getId(); ?>"  >Reject</a>
+                                                    <a type="button" class="btn btn-sm btn-primary" href="?core=user&action=updateApprove&id=<?php echo $ligne->getId(); ?>" >Approve</a>
+                       
 
                                                     </div>
                                             </td>

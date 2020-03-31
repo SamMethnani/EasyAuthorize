@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2020 at 03:50 PM
+-- Generation Time: Mar 30, 2020 at 07:23 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -42,18 +42,8 @@ CREATE TABLE `authorization` (
   `action_type` varchar(500) DEFAULT NULL,
   `piece_jointe` varchar(800) DEFAULT NULL,
   `status` varchar(200) NOT NULL,
-  `client_id` int(11) NOT NULL
+  `client_id` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `authorization`
---
-
-INSERT INTO `authorization` (`id`, `role`, `reason`, `coment`, `start_datetime`, `end_datetime`, `start_state`, `end_state`, `start_city`, `end_city`, `action_type`, `piece_jointe`, `status`, `client_id`) VALUES
-(1, 'Individual', 'Need for food', 'kkj', '0000-00-00 00:00:00', '0551-04-05 04:54:00', 'Ariana', 'Ariana', 'dd', 'd', 'NULL', 'NULL', 'Approved', 0),
-(5, 'Individual', 'Need for food', 's', '0054-06-05 05:04:00', '0005-04-05 15:04:00', 'Ariana', 'Ariana', 's', 's', 'NULL', 'NULL', 'Approved', 0),
-(6, 'Individual', 'Other', '', '0121-12-12 12:12:00', '0001-02-12 02:12:00', 'Ariana', 'Ariana', 's', '21', 'NULL', 'NULL', 'Pending', 0),
-(8, 'Individual', 'Need for food', 'ss', '2020-01-01 00:00:00', '2020-12-01 00:00:00', 'Ben Arous', 'Ben Arous', 'Mourouj 1', 'Mourouj 1', 'NULL', 'NULL', 'Approved', 0);
 
 -- --------------------------------------------------------
 
@@ -70,13 +60,6 @@ CREATE TABLE `client` (
   `last_name` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`id`, `role`, `nationality`, `unique_id`, `name`, `last_name`, `password`) VALUES
-(0, 'Individual', 'Tunisia', 'aaa', 'aa', 'aa', 'aa');
 
 -- --------------------------------------------------------
 
@@ -110,13 +93,6 @@ CREATE TABLE `user` (
   `location_type` int(1) NOT NULL,
   `unique_id` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `name`, `last_name`, `username`, `password`, `location_id`, `location_type`, `unique_id`) VALUES
-(2, 'pp', 'pp', 'pp', 'pp', 0, 0, 'pp');
 
 --
 -- Indexes for dumped tables
@@ -154,7 +130,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `authorization`
 --
 ALTER TABLE `authorization`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `client`
+--
+ALTER TABLE `client`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `superuser`
@@ -166,7 +148,7 @@ ALTER TABLE `superuser`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
