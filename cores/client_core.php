@@ -71,6 +71,9 @@
                 $_SESSION['name'] = $client->getName();
    require_once('views/IndivAuth.php');}
     elseif($client->getRole()=="Organization"){
+      $_SESSION['role'] ="Individual";
+      $_SESSION['unique_id'] = $client->getUnique_id();
+      $_SESSION['name'] = $client->getName();
    require_once('views/OrgAuth.php');}
 }
 

@@ -20,13 +20,13 @@
     <div class="main">
 
         <div class="container">
-            <form method="POST" action="?core=IndivAuth&action=add_Auth" id="signup-form" class="signup-form wizard clearfix" enctype="multipart/form-data" role="application">
-            <a href="?core=client&action=logout" >logout</a>
+            <form method="POST" action="?core=OrgAuth&action=add_Auth" id="signup-form" class="signup-form wizard clearfix" enctype="multipart/form-data" role="application">
+            <a href="?core=user&action=logout" >logout</a>
 
 
-                <div class="steps clearfix"><ul role="tablist"><li role="tab" class="first current" aria-disabled="false" aria-selected="true"><a id="signup-form-t-0" href="?core=IndivAuth&action=new_auth" aria-controls="signup-form-p-0"><span class="current-info audible"> </span><h3 class="title">
+                <div class="steps clearfix"><ul role="tablist"><li role="tab" class="first current" aria-disabled="false" aria-selected="true"><a id="signup-form-t-0" href="?core=OrgAuth&action=new_auth" aria-controls="signup-form-p-0"><span class="current-info audible"> </span><h3 class="title">
                     New Authorisation
-                </h3></a></li><li role="tab" class="last done" aria-disabled="false" aria-selected="false"><a id="signup-form-t-1"  href="?core=IndivAuth&action=auths" aria-controls="signup-form-p-1"><h3 class="title">
+                </h3></a></li><li role="tab" class="last done" aria-disabled="false" aria-selected="false"><a id="signup-form-t-1"  href="?core=OrgAuth&action=auths" aria-controls="signup-form-p-1"><h3 class="title">
                     All Authorisations
                 </h3></a></li></ul></div><div class="content clearfix">
                 <h3 id="signup-form-h-0" tabindex="-1" class="title current">
