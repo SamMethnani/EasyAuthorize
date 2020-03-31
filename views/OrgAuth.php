@@ -38,8 +38,8 @@
                             <div class="form-select">
                             Activity Type 
                             <select name="reason"  class="custom-select mb-3" id="Reason">
-                             <option name="reason" value="Need for food">Daily</option>
-                             <option name="reason" value="Emergency">Occasional</option>
+                             <option name="reason" value="Daily">Daily</option>
+                             <option name="reason" value="Occasional">Occasional</option>
                              <option name="reason" value="Other">Other</option>
                             </select>
                         

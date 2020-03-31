@@ -27,8 +27,7 @@
   	if($_POST['reason']=="Other"){$status="Pending";}
   	else {$status="Approved";}
 
-  	 $reason = $_POST['reason'];
-  	
+  	 $action_type = $_POST['reason']; 	
    $coment = $_POST['coment'];
    $time = $_POST['time'];
    $state = $_POST['state'];
@@ -36,10 +35,10 @@
    $time2 = $_POST['time2'];
    $state2 = $_POST['state2'];
    $city2 = $_POST['city2'];
-    $action_type=$_POST['action_type'];
-   $piece_jointe= $_POST['piece_jointe'];
+    //$action_type=$_POST['action_type'];
+   $piece_jointe= $_POST['coment'];
 
-    $Auths= Auths::ajouter("Organization",$reason,$coment,$time,$time2,$state,$state2,$city,$city2,$action_type,$piece_jointe,$status);
+    $Auths= Auths::ajouter("Organization",NULL,$coment,$time,$time2,$state,$state2,$city,$city2,$action_type,$piece_jointe,$status,$_SESSION['unique_id']);
 	header("location:?core=OrgAuth&action=auths");
   }}
 }

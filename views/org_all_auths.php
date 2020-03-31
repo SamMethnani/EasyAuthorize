@@ -68,7 +68,7 @@
                                 <table id="html5-extension" class="table table-hover non-hover" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Reason</th>
+                                            <th>Activity type</th>
                                             <th>Start datetime</th>
                                             <th>End datetime</th>
                                             <th>Status</th>
@@ -82,7 +82,7 @@
                                             if(($ligne->getStatus())=="Approved"){
                                          ?>
                                         <tr>
-                                            <td><?php echo $ligne->getReason(); ?></td>
+                                            <td><?php echo $ligne->getAction_type(); ?></td>
                                             <td><?php echo $ligne->getStart_datetime(); ?></td>
                                             <td><?php echo $ligne->getEnd_datetime(); ?></td>
                                             <td class=""><span class=" shadow-none badge outline-badge-primary"><?php echo $ligne->getStatus(); ?></span></td>
