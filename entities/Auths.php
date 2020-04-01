@@ -19,9 +19,27 @@ class Auths {
 
  // private $police_station;
 
+
+
+public function __construct()
+{
   
- /*******************************/
-public function __construct( $id,$role,$reason,$coment,$start_datetime,$end_datetime,$start_state,$end_state,$start_city,$end_city,$action_type,$piece_jointe,$status,$client_id)
+      $argv = func_get_args();
+      switch( func_num_args() ) 
+      {
+      case 1:
+        self::__construct1($argv[0] );
+      break;
+      case 14:
+        self::__construct2( $argv[0], $argv[1],$argv[2],$argv[3],$argv[4],$argv[5],$argv[6],$argv[7],$argv[8],$argv[9],$argv[10],$argv[11],$argv[12],$argv[13] );
+      break; 
+      }
+}
+ public function __construct1($start_state)
+{
+    $this->start_state=$start_state;
+}
+  public function __construct2( $id,$role,$reason,$coment,$start_datetime,$end_datetime,$start_state,$end_state,$start_city,$end_city,$action_type,$piece_jointe,$status,$client_id)
 {  $this->id=$id;
    $this->role=$role;
    $this->reason=$reason;
@@ -143,6 +161,25 @@ public static function all() {
       return $liste;
     }
 
+
+ public static function allDISTINCT() {
+      $liste = [];
+      $db = Db::getInstance();
+       //var_dump($results);
+
+       $results =$db->query("SELECT DISTINCT start_state from authorization  order by start_city");
+      // we create a list of Post objects from the database results
+      
+
+      foreach($results->fetchAll() as $auth)
+       {//foreach: for  // //fetchall->tableau d'après les infos brutes dans l'objet
+     $liste[] = new Auths($auth['start_state']);
+      }
+      return $liste;
+    }
+
+
+
     public static function allbyid($client_id) {
       $liste = [];
       $db = Db::getInstance();
@@ -167,6 +204,25 @@ public static function all() {
    $db=Db::getInstance();
   $qry =$db->exec("UPDATE  authorization SET  status='Rejected' WHERE id='".$id."' ");
   echo $qry;
+ }
+
+
+ public static function countByState($start_city){
+    $db = Db::getInstance();
+        $list = [];
+  $res =$db->query("SELECT COUNT(*) FROM authorization WHERE start_state='".$start_city."' ");
+  $rows =$res->fetchAll();
+        return $rows[0];
+ }
+
+
+ public static function nbr_auths(){
+  $db = Db::getInstance();
+        $list = [];
+        $res = $db->query("SELECT count(*) from authorization ");
+        $rows =$res->fetchAll();
+        return $rows[0];
+  
  }
 
 }

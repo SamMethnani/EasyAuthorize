@@ -14,14 +14,22 @@
   	require_once('views/signin_signup_user.php');}
 
 public function  updateApprove(){
+    if(!isset($_SESSION['unique_id']))
+  {
+  header("location:?core=user&action=signin_signup_user");}
+  else{ 
   $user= Auths::updateApprove($_GET['id']);
     $table= Auths::all();
    require_once('views/userdash.php');
-}
+}}
 public function  updateRej(){
+    if(!isset($_SESSION['unique_id']))
+  {
+  header("location:?core=user&action=signin_signup_user");}
+  else{ 
   $user= Auths::updateRej($_GET['id']);
     $table= Auths::all();
-   require_once('views/userdash.php');
+   require_once('views/userdash.php');}
 }
 
    public function sign_up_user ()
@@ -48,6 +56,7 @@ public function  updateRej(){
   	{ $user= User::ajouter($name,$LastName,$username,$password,$location_type,$unique_id);
 	require_once('views/signin_signup_user.php');}}
 
+
 	public function sign_in_user()
   {$password = $_POST['password'];
    $username = $_POST['username'];
@@ -67,6 +76,32 @@ public function  updateRej(){
                 $table= Auths::all();
    require_once('views/userdash.php');}
 }
+
+
+
+  public function userdash(){
+     if(!isset($_SESSION['unique_id']))
+  {
+  header("location:?core=user&action=signin_signup_user");}
+  else{ 
+      $table= Auths::all();
+ require_once('views/userdash.php');}
+}
+
+
+  public function statistics(){
+     if(!isset($_SESSION['unique_id']))
+  {
+  header("location:?core=user&action=signin_signup_user");}
+  else{ 
+         $table= Auths::allDISTINCT();
+          
+    
+          $auths= Auths:: nbr_auths();
+        
+ require_once('views/statistics.php');}
+}
+
 
 
 

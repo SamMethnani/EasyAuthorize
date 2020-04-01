@@ -108,7 +108,7 @@
                     </li>
 
                     <li class="menu">
-                        <a href="?core=user&action=statistics" aria-expanded="false" class="dropdown-toggle">
+                           <a href="?core=user&action=statistics" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
                                 <span>Statistics</span>
@@ -133,75 +133,36 @@
                 
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                         <div class="widget-content widget-content-area br-6">
-                            <div class="table-responsive mb-4 mt-4">
-                                <table id="html5-extension" class="table table-hover non-hover" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                        <!--    <th>Name</th>
-                                            <th>Last Name</th> !-->
+                          
+                                
 
-                                            <th>Client id</th>
+<div id="piechart">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-                                            <th>Reason</th>
-                                            <th>Start datetime</th>
-                                            <th>End datetime</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php 
-                                       
-                                       foreach($table as $ligne) {
-                                          
-                                           if(($ligne->getStatus())=="Approved"){
-                                        ?>
-                                       <tr>
-                                           <td><?php echo $ligne->getClient_id(); ?></td>
-                                           <td><?php echo $ligne->getReason(); ?></td>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
-                                           <td><?php echo $ligne->getStart_datetime(); ?></td>
-                                           <td><?php echo $ligne->getEnd_datetime(); ?></td>
-                                           <td class=""><span class=" shadow-none badge outline-badge-primary"><?php echo $ligne->getStatus(); ?></span></td>
-                        
-                                       
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Authorization', 'start city'],
+   <?php foreach($table as $ligne) { ?> 
+  ["<?php echo $ligne->getStart_state(); ?>", <?php  $nbrs=Auths::countByState($ligne->getStart_state());  echo($nbrs[0]);?>],
+<?php } ?>
+]);
 
-                                       <td>
-                                                <div class="btn-group">
-                                                  
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'number of authorizations : <?php echo($auths[0]);?>', 'width':550, 'height':400};
 
-                                                    <a type="button" class="btn btn-sm btn-danger" href="?core=user&action=updateRej&id=<?php echo $ligne->getId(); ?>" >Reject</a>
-                                           </div>
-                                            </td>
-                                            </tr>
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+</div>
 
-                                       <?php 
-                                      
-                                       
-                                          } else {
-                                        ?>
-                                       <tr>
-                                       <td><?php echo $ligne->getClient_id(); ?></td>
-                                           <td><?php echo $ligne->getReason(); ?></td>
-                                           <td><?php echo $ligne->getStart_datetime(); ?></td>
-                                            <td><?php echo $ligne->getEnd_datetime(); ?></td>
-                                           <td class=""><span class="badge outline-badge-danger shadow-none"><?php echo $ligne->getStatus(); ?></span></td>
-                                   
-                                       
-                                       <td>
-                                                <div class="btn-group">
-                                                    <a type="button" class="btn btn-sm btn-primary" href="?core=user&action=updateApprove&id=<?php echo $ligne->getId(); ?>" >Approve</a>
-                       
-
-                                                    </div>
-                                            </td>
-                                            </tr>
-                                    <?php  }} ?>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                     </div>
 
@@ -210,7 +171,7 @@
             </div>
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright © 2020, All rights reserved.</p>
+                    <p class="">Copyright © 2020 , All rights reserved.</p>
                 </div>
             </div>
         </div>
