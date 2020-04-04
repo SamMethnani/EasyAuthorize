@@ -38,9 +38,14 @@
 
 ![](screenshots/admin_approval_dash.png) 
 
+* The approver can vizualize the authorizations in every state/city
+
+![](screenshots/admin_dash_stats.png) 
+
 * List of Authorizations after approval
 
 ![](screenshots/all_auths_org_after_approval.png) 
+
 
 
 ------------------------------------------------------------------------------------------------------------------------
