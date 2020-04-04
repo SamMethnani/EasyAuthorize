@@ -18,7 +18,7 @@
 
         <div class="container">
             <form method="POST" id="signup-form" class="signup-form wizard clearfix" enctype="multipart/form-data" role="application">
-              <a href="?core=user&action=logout">logout</a>
+              <a href="?core=client&action=logout">logout</a>
                 <div class="steps clearfix"><ul role="tablist"><li role="tab" class="first done" aria-disabled="false" aria-selected="false"><a id="signup-form-t-0"href="?core=OrgAuth&action=new_auth"  aria-controls="signup-form-p-0"><h3 class="title">
                     New Authorisation
                 </h3></a></li><li role="tab" class="last current" aria-disabled="false" aria-selected="true"><a id="signup-form-t-1" href="?core=OrgAuth&action=auths"  aria-controls="signup-form-p-1"><span class="current-info audible"> </span><h3 class="title">
@@ -100,6 +100,7 @@
                                             <td><?php echo $ligne->getStart_datetime(); ?></td>
                                              <td><?php echo $ligne->getEnd_datetime(); ?></td>
                                             <td class=""><span class="badge outline-badge-danger shadow-none"><?php echo $ligne->getStatus(); ?></span></td>
+                                            <td>not available</td>
                                     
                                         </tr>
   <?php  }} ?>

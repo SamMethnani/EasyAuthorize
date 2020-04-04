@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link href="template/css/signin_signup_user.css" rel="stylesheet" type="text/css" />
     
-
+<a href="?core=user&action=signin_signup_user_ar">arabe</a>
 </head>
 <body>
 <div class="container login-container">
@@ -20,25 +20,25 @@
                     <h3>Sign up</h3>
                     <form  action="?core=user&action=sign_up_user" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name *" name="Name" value="" />
+                            <input type="text" class="form-control" placeholder="Name *" name="Name" value="" required />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name *" name="LastName" value="" />
+                            <input type="text" class="form-control" placeholder="Last Name *" name="LastName" value="" required/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username *" name="username" value="" />
+                            <input type="text" class="form-control" placeholder="Username *" name="username" value="" required/>
                         </div> 
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" name="password" value="" />
+                            <input type="password" class="form-control" placeholder="Your Password *" name="password" value="" required />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Confirm your Password *"name="password2" value="" />
+                            <input type="password" class="form-control" placeholder="Confirm your Password *"name="password2" value="" required/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Unique ID *" name="unique_id" value="" />
+                            <input type="text" class="form-control" placeholder="Unique ID *" name="unique_id" value="" required/>
                         </div>         
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Location Type *" name="location_type" value="" />
+                            <input type="text" class="form-control" placeholder="Location Type *" name="location_type" value="" required />
                         </div> 
 
                         <div class="form-group">

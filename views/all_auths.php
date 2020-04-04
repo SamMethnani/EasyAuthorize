@@ -100,6 +100,7 @@
                                             <td><?php echo $ligne->getStart_datetime(); ?></td>
                                              <td><?php echo $ligne->getEnd_datetime(); ?></td>
                                             <td class=""><span class="badge outline-badge-danger shadow-none"><?php echo $ligne->getStatus(); ?></span></td>
+                                             <td>not available</td>
                                     
                                         </tr>
   <?php  }} ?>

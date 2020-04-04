@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link href="template/css/signin_signup.css" rel="stylesheet" type="text/css" />
     
-
+<a href="?core=client&action=signin_signup_ar">arabe</a>
 </head>
 <body>
 <div class="container login-container">
